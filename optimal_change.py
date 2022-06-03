@@ -45,12 +45,16 @@ def optimal_change(item_cost, amount_paid):
 
     # structuring the sentence
     for key, value in currency_tally.items():
+    
+    # specificly pennies for the certain cases of only pennies or a penny
         if key == 'penny':
             end_string.append(f"{value} {'pennies' if value > 1 else key}")
-
+    
+    # testing for bills
         elif "$" in key and not key == 'penny':
             end_string.append(f"{value} {key} {'bills'if value > 1  else 'bill'}")
 
+    # testing for cents
         else:
             end_string.append(f"{value} {key}{'s' if value > 1 else ''}")
 
@@ -60,8 +64,3 @@ def optimal_change(item_cost, amount_paid):
     return f"The optimal change for an item that costs ${item_cost} with an ${amount_paid} of is {end_string}."
 
 
-# print(optimal_change(62.13, 100))
-# print(optimal_change(31.51, 50))
-# print(optimal_change(60, 100))
-# print(optimal_change(49.99, 50))
-print(optimal_change(0.01, 10))
