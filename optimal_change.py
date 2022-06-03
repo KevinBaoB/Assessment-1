@@ -59,8 +59,13 @@ def optimal_change(item_cost, amount_paid):
             end_string.append(f"{value} {key}{'s' if value > 1 else ''}")
 
     # putting it all together
-    end_string = ", ".join(end_string)
+    new_end_string = ", ".join(end_string)
 
-    return f"The optimal change for an item that costs ${item_cost} with an ${amount_paid} of is {end_string}."
+    # to add the "and" if more than 1 currency
+    if len(end_string) > 1:
+        
+        return f"The optimal change for an item that costs ${item_cost} with an ${amount_paid} of is {', '.join(end_string[:-1])} and {end_string[-1]}."
+    else:
+        return f"The optimal change for an item that costs ${item_cost} with an ${amount_paid} of is {new_end_string}."
 
 
