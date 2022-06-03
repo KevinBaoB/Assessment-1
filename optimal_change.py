@@ -29,7 +29,7 @@ def optimal_change(item_cost, amount_paid):
     # for the exact change of one penny
     if change_to_convert < .01:
         change_to_convert = round(change_to_convert, 2)
-    # looping through the array of currencies to break down the change from largest to smallest currencies
+    # looping through the array of currencies to break down the change from largest to smallest currencies by chipping away at it as each currency goes through
     for currency in array_of_currency_value:
         while change_to_convert/currency >= 1:
             converted_change.append(list_of_currencies[currency])
